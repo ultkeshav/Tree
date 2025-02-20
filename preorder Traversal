@@ -8,7 +8,7 @@ public:
 
     }
        
-    void preorder(TreeNode* root, vector<int> result) {
+    void preorder(TreeNode* root, vector<int>& result) {
 
     if (!root) return;
     result.push_back(root->val);  // Visit root
