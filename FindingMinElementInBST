@@ -1,0 +1,27 @@
+class Solution {
+  public:
+    int minValue(Node* root) {
+        
+        if(!root) return -1;
+        
+        int min = root->data;
+        
+        minValueUtil(root,min);
+        
+        return min;
+        
+    }
+    
+    void minValueUtil(Node* root, int&min){
+        
+        if(!root) return;
+        
+        if(root->data<min){
+            
+            min = root->data;
+        }
+        
+        minValueUtil(root->left,min);
+        minValueUtil(root->right,min);
+    }
+};
