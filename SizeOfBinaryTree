@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    int getSize(Node* node) {
+        
+        int size = 0;
+        getSizeUtil(node,size);
+        return size;
+        
+    }
+    
+    void getSizeUtil(Node* node, int&size){
+        
+        if(!node) return;
+        
+        size = size + 1;
+        
+        getSizeUtil(node->left,size);
+        getSizeUtil(node->right,size);
+    }
+};
