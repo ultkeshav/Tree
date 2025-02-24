@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    int sumBT(Node* root) {
+        
+        int sum=0;
+        sumBTUtil(root,sum);
+        return sum;
+        
+        
+    }
+    
+    void sumBTUtil(Node* root, int&sum){
+        
+        if(!root) return;
+        
+            
+        sum += root->data;
+        
+        sumBTUtil(root->left,sum);
+        sumBTUtil(root->right,sum);
+    }
+};
