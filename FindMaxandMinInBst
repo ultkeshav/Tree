@@ -1,0 +1,46 @@
+class Solution
+{
+public:
+    int findMax(Node *root)
+    {
+        if(!root) return -1;
+        int max = root->data;
+        findMaxUtil(root,max);
+        return max;
+        
+    }
+    void findMaxUtil(Node *root,int&max){
+        
+        if(!root) return;
+        
+        if(root->data > max){
+            
+            max = root->data;
+        }
+        
+        findMaxUtil(root->left,max);
+        findMaxUtil(root->right,max);
+        
+    }
+    int findMin(Node *root)
+    {
+        if(!root) return -1;
+        int min = root->data;
+        findMinUtil(root,min);
+        return min;
+        
+    }
+    void findMinUtil(Node *root,int&min){
+        
+        if(!root) return;
+        
+        if(root->data < min){
+            
+            min = root->data;
+        }
+        
+        findMinUtil(root->left,min);
+        findMinUtil(root->right,min);
+        
+    }
+};
