@@ -1,0 +1,29 @@
+queue<Node*> q;
+     q.push(head);
+     q.push(NULL);
+
+Node* curr = NULL;
+
+int level = 0;
+vector<vector<int>> result;
+
+while(!q.empty()) {
+
+  curr = q.front();
+   q.pop();
+   
+    if (curr == NULL) {
+        if (q.empty()){
+            break;
+        }
+      else{
+             level++; 
+             q.push(NULL);
+         }
+    } else {
+            result[level].push_back(curr->data);
+            if (left) q.push(curr->left)
+            if (right)q.push(curr->right)
+    }
+
+}
