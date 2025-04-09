@@ -1,0 +1,31 @@
+class Solution {
+  public:
+    // function should print the nodes at k distance from root
+    vector<int> Kdistance(Node *root, int k) {
+       
+         vector<int> result;
+         
+         KdistanceUtil(root,k,result);
+         
+         return result;
+     
+       
+    }
+    
+    void KdistaneUtil(Node *root,int k, vector<int>& result){
+        
+       if(!root) return NULL;
+       
+       if(k == 0){
+           
+           result.push_back(root->data);
+       }
+ 
+          
+          KdistanceUtil(root->left,k-1,result);
+          KdistanceUtil(root->right,k-1,result);
+     
+        
+    }
+    
+};
