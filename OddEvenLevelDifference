@@ -1,0 +1,32 @@
+/* The Node structure is
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+}; */
+
+class Solution {
+  public:
+    /*You are required to complete this function*/
+    int getLevelDiff(Node *root) {
+        
+        return getlevelDiffUtil(root,1);
+    }
+    
+    int getlevelDiffUtil(Node *root,int level){
+        
+        if(!root) return 0;
+        
+        if(level % 2 == 1){
+            
+            return root->data + getlevelDiffUtil(root->left,level+1) + getlevelDiffUtil(root->right,level+1);
+        }
+        
+        else{
+            
+            return -root->data + getlevelDiffUtil(root->left,level+1) + getlevelDiffUtil(root->right,level+1);
+        }
+        
+    }
+};
