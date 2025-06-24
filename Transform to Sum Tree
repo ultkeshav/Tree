@@ -1,0 +1,24 @@
+class Solution {
+  public:
+
+    // Convert a given tree to a tree where every node contains sum of values of
+    // nodes in left and right subtrees in the original tree
+    void toSumTree(Node *root) {
+        
+        toSumTreeUtil(root);
+    }
+    
+    int toSumTreeUtil(Node *root){
+        
+       if(!root) return 0;
+       
+       int leftSum = toSumTreeUtil(root->left);
+       int rightSum = toSumTreeUtil(root->right);
+        
+       int oldvalue = root->data;
+       
+       root->data = leftSum + rightSum;
+       
+       return root->data + oldvalue;
+    }
+};
